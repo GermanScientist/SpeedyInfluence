@@ -1,2 +1,0 @@
-D:\UnrealProjects\SpeedyInfluence\Intermediate\Build\Win64\UE4Editor\Development\SpeedyInfluence\Definitions.SpeedyInfluence.h
-D:\UnrealProjects\SpeedyInfluence\Source\SpeedyInfluence\SpeedyInfluence.h
