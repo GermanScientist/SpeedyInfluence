@@ -48,22 +48,27 @@ void ACarBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (isMovingForwards || isMovingBackwards) {
+	if (!isMovingForwards && !isMovingBackwards) {
+
+		if (currentSpeed > 0)
+			currentSpeed -= acceleration;
+
+		if (currentSpeed < 0)
+			currentSpeed += acceleration;
+
+		if (currentSpeed == 0)
+			currentSpeed = 0;
+	} else if (isMovingForwards || isMovingBackwards) {
 		currentSpeed = FMath::Clamp(currentSpeed, -(maxSpeed / 3.0f), maxSpeed);
 		
 		acceleration += accelerationMultiplier;
 
+		if (isMovingForwards)
+			currentSpeed += acceleration;
+
+		if (isMovingBackwards)
+			currentSpeed -= acceleration;
 	} 
-	if(!isMovingForwards && !isMovingBackwards) {
-		if (acceleration > 0)
-			acceleration -= accelerationMultiplier;
-	}
-
-	if(isMovingForwards)
-		currentSpeed += acceleration;
-
-	if (isMovingBackwards)
-		currentSpeed -= acceleration;
 
 	currentVelocity.X = currentSpeed;
 
