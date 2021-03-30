@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// SpeedyInfluence has been created by: Jack Hulspas
 
 #pragma once
 
@@ -81,5 +81,4 @@ private:
 	//Acceleration
 	UPROPERTY(EditAnywhere, Category = "Movement");
 	float accelerationMultiplier;
-
 };

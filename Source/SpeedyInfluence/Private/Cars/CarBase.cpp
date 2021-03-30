@@ -1,5 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
+// SpeedyInfluence has been created by: Jack Hulspas
 
 #include "Cars/CarBase.h"
 
@@ -151,4 +150,3 @@ void ACarBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	//Bind the horizontal mouse axis to the existing pitch input method in the pawn class
 	InputComponent->BindAxis(TEXT("LookUp"), this, &ACarBase::MouseY);
 }
-
