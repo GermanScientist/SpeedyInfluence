@@ -31,6 +31,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player");
 	UStaticMeshComponent* staticMeshComponent;
 
+	UPROPERTY(EditAnywhere, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	struct FPostProcessSettings postProcessingSettings;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

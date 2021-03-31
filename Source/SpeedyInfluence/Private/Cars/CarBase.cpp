@@ -40,6 +40,8 @@ ACarBase::ACarBase()
 void ACarBase::BeginPlay()
 {
 	Super::BeginPlay();
+
+	cameraComponent->PostProcessSettings = postProcessingSettings;
 }
 
 //Called every frame
