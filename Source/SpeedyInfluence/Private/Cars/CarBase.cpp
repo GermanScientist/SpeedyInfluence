@@ -41,7 +41,7 @@ void ACarBase::BeginPlay()
 {
 	Super::BeginPlay();
 
-	cameraComponent->PostProcessSettings = postProcessingSettings;
+	SetNormalPostProcessing();
 }
 
 //Called every frame
@@ -151,4 +151,22 @@ void ACarBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 	//Bind the horizontal mouse axis to the existing pitch input method in the pawn class
 	InputComponent->BindAxis(TEXT("LookUp"), this, &ACarBase::MouseY);
+}
+
+//Sets the normal post processing
+void ACarBase::SetNormalPostProcessing()
+{
+	cameraComponent->PostProcessSettings = normalPostProcessing;
+}
+
+//Sets the LSD post processing
+void ACarBase::SetLSDPostProcessing()
+{
+	cameraComponent->PostProcessSettings = LSDPostProcessing;
+}
+
+//Sets the heroine post processing
+void ACarBase::SetHeroinePostProcessing()
+{
+	cameraComponent->PostProcessSettings = heroinePostProcessing;
 }

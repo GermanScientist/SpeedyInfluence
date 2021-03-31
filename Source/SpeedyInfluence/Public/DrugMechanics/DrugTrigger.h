@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/TriggerBox.h"
+#include "Cars/CarBase.h"
 #include "DrugTrigger.generated.h"
 
 /**

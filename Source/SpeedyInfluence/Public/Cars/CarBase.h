@@ -31,8 +31,18 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player");
 	UStaticMeshComponent* staticMeshComponent;
 
+	//Add the post processing settings for each effect
 	UPROPERTY(EditAnywhere, Category = Camera, meta = (AllowPrivateAccess = "true"))
-	struct FPostProcessSettings postProcessingSettings;
+		struct FPostProcessSettings normalPostProcessing;
+
+	UPROPERTY(EditAnywhere, Category = Camera, meta = (AllowPrivateAccess = "true"))
+		struct FPostProcessSettings alcoholPostProcessing;
+
+	UPROPERTY(EditAnywhere, Category = Camera, meta = (AllowPrivateAccess = "true"))
+		struct FPostProcessSettings LSDPostProcessing;
+
+	UPROPERTY(EditAnywhere, Category = Camera, meta = (AllowPrivateAccess = "true"))
+		struct FPostProcessSettings heroinePostProcessing;
 
 protected:
 	// Called when the game starts or when spawned
@@ -44,6 +54,18 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	//Change to normal post processing
+	void SetNormalPostProcessing();
+
+	//Change to alcohol post processing
+	void SetAlcoholPostProcessing();
+
+	//Change to LSD post processing
+	void SetLSDPostProcessing();
+
+	//Change to alcohol post processing
+	void SetHeroinePostProcessing();
 
 private:
 	//Input
