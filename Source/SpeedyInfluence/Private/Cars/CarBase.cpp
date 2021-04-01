@@ -34,6 +34,7 @@ ACarBase::ACarBase()
 	accelerationMultiplier = 10.0f;
 	isMovingForwards = false;
 	isMovingBackwards = false;
+	blendValue = 0.0f;
 }
 
 //Called when the game starts or when spawned
@@ -162,17 +163,29 @@ void ACarBase::SetNormalPostProcessing()
 //Sets the LSD post processing
 void ACarBase::SetLSDPostProcessing()
 {
+	blendValue += 0.05f;
+	blendValue = FMath::Clamp(blendValue, 0.0f, 1.0f);
+	cameraComponent->PostProcessBlendWeight = blendValue;
+
 	cameraComponent->PostProcessSettings = LSDPostProcessing;
 }
 
 //Sets the heroine post processing
 void ACarBase::SetHeroinePostProcessing()
 {
+	blendValue += 0.05f;
+	blendValue = FMath::Clamp(blendValue, 0.0f, 1.0f);
+	cameraComponent->PostProcessBlendWeight = blendValue;
+
 	cameraComponent->PostProcessSettings = heroinePostProcessing;
 }
 
 //Sets the alcohol post processing
 void ACarBase::SetAlcoholPostProcessing()
 {
+	blendValue += 0.05f;
+	blendValue = FMath::Clamp(blendValue, 0.0f, 1.0f);
+	cameraComponent->PostProcessBlendWeight = blendValue;
+
 	cameraComponent->PostProcessSettings = alcoholPostProcessing;
 }

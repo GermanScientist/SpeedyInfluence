@@ -98,6 +98,7 @@ private:
 	//Movementspeed
 	float currentSpeed;
 	float acceleration;
+	float blendValue;
 
 	//Max speed
 	UPROPERTY(EditAnywhere, Category = "Movement");
