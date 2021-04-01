@@ -31,8 +31,8 @@ void ADrugTrigger::OnOverlapBegin(class AActor* _overlappedActor, class AActor* 
         print("Overlap Begin");
         printFString("Overlapped Actor = %s", *_overlappedActor->GetName());
 
-        if ((ACarBase*)_overlappedActor) {
-            ACarBase* car = (ACarBase*)_overlappedActor;
+        if ((ACarBase*)_otherActor) {
+            ACarBase* car = (ACarBase*)_otherActor;
 
             car->SetLSDPostProcessing();
         }
