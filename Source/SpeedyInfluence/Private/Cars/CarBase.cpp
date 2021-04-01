@@ -170,3 +170,9 @@ void ACarBase::SetHeroinePostProcessing()
 {
 	cameraComponent->PostProcessSettings = heroinePostProcessing;
 }
+
+//Sets the alcohol post processing
+void ACarBase::SetAlcoholPostProcessing()
+{
+	cameraComponent->PostProcessSettings = alcoholPostProcessing;
+}

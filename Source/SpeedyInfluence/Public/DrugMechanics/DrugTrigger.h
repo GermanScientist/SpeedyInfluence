@@ -2,6 +2,9 @@
 
 #pragma once
 
+#define print(text) if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 1.5, FColor::Green,text)
+#define printFString(text, fstring) if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT(text), fstring))
+
 #include "CoreMinimal.h"
 #include "Engine/TriggerBox.h"
 #include "Cars/CarBase.h"
@@ -23,8 +26,8 @@ public:
 	ADrugTrigger();
 
 	UFUNCTION()
-		void OnOverlapBegin(class AActor* _overlappedActor, class AActor* _otherActor);
+		virtual void OnOverlapBegin(class AActor* _overlappedActor, class AActor* _otherActor);
 
 	UFUNCTION()
-		void OnOverlapEnd(class AActor* _overlappedActor, class AActor* _otherActor);
+		virtual void OnOverlapEnd(class AActor* _overlappedActor, class AActor* _otherActor);
 };
