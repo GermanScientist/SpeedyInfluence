@@ -60,9 +60,10 @@ void ACarBase::Tick(float DeltaTime)
 
 		if (currentSpeed == 0)
 			currentSpeed = 0;
-	} else if (isMovingForwards || isMovingBackwards) {
+	}
+	else if (isMovingForwards || isMovingBackwards) {
 		currentSpeed = FMath::Clamp(currentSpeed, -(maxSpeed / 3.0f), maxSpeed);
-		
+
 		acceleration += accelerationMultiplier;
 
 		if (isMovingForwards)
@@ -70,7 +71,7 @@ void ACarBase::Tick(float DeltaTime)
 
 		if (isMovingBackwards)
 			currentSpeed -= acceleration;
-	} 
+	}
 
 	currentVelocity.X = currentSpeed;
 
@@ -78,7 +79,7 @@ void ACarBase::Tick(float DeltaTime)
 	if (!currentVelocity.IsZero())
 	{
 		FVector direction = GetActorForwardVector();
-		FVector newLocation = (GetActorLocation() + (currentVelocity.X * direction));
+		FVector newLocation = (GetActorLocation() + (currentVelocity.X * direction * DeltaTime));
 		SetActorLocation(newLocation);
 	}
 
@@ -100,7 +101,7 @@ void ACarBase::MoveForward(float _value)
 		isMovingForwards = true;
 		isMovingBackwards = false;
 	}
-	else if(_value < 0)
+	else if (_value < 0)
 	{
 		isMovingForwards = false;
 		isMovingBackwards = true;
@@ -119,7 +120,7 @@ void ACarBase::MoveRight(float _value)
 
 	currentRotation = GetActorRotation() + FRotator(0, yawValue, 0);
 
-	//Rotate vehicle
+	//AddActorLocalRotation(quatRotation, false, 0, ETeleportType::None);
 	SetActorRotation(currentRotation, ETeleportType::None);
 }
 
