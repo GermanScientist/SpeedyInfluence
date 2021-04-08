@@ -78,7 +78,7 @@ void ACarBase::Tick(float DeltaTime)
 	if (!currentVelocity.IsZero())
 	{
 		FVector direction = GetActorForwardVector();
-		FVector newLocation = (GetActorLocation() + (currentVelocity.X * direction * DeltaTime));
+		FVector newLocation = (GetActorLocation() + (currentVelocity.X * direction));
 		SetActorLocation(newLocation);
 	}
 
@@ -119,7 +119,7 @@ void ACarBase::MoveRight(float _value)
 
 	currentRotation = GetActorRotation() + FRotator(0, yawValue, 0);
 
-	//AddActorLocalRotation(quatRotation, false, 0, ETeleportType::None);
+	//Rotate vehicle
 	SetActorRotation(currentRotation, ETeleportType::None);
 }
 
